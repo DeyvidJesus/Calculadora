@@ -14,7 +14,7 @@ A última e mais importante neste caso é a função calcular( ), ela é a base 
 Senão houver valor algum ela declara como inválido. 
   <br>
   
-  <h3 align="center">Acesse o projeto aqui: <a href="https://deyvidjesus.github.io/Calculadora-JS/" target="_blank">Calculadora</a></h3>
+  <h3 align="center">Acesse o projeto aqui: <a target="_blank" href="https://deyvidjesus.github.io/Calculadora-JS/">Calculadora</a></h3>
   
   <Br>
   
