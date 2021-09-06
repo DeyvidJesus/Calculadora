@@ -8,74 +8,75 @@
     <style>
             /* Configurações globais. */
 
-    *{
-        margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        text-decoration: none;
-    }
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+        }
 
-    /* Degradê. */
+        /* Degradê. */
 
-    body{
-        background-image: linear-gradient(45deg, #0e0d0d, #FFDA36, #FFD000);
-        height: 100vh;
-    }
+        body{
+            background-image: linear-gradient(45deg, #0e0d0d, #FFDA36, #FFD000);
+            height: 100vh;
+        }
 
-    /* Cabeçalho. */
+        /* Cabeçalho. */
 
-    header{
-        padding: 5px;
-        text-align: center;
-        background-color: rgba(0, 0, 0, 0.925);
-        color: #fff;
-    }
+        header{
+            padding: 5px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.925);
+            color: #fff;
+        }
 
-    /* Fundo da calculadora. */
+        /* Fundo da calculadora. */
 
-    #calculadora{
-        padding: 15px;
-        border-radius: 15px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        background-color: rgba(0, 0, 0, 0.295);
-    }
+        #calculadora{
+            padding: 15px;
+            border-radius: 15px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background-color: rgba(0, 0, 0, 0.295);
+        }
 
-    /* Estilos dos botões. */
+        /* Estilos dos botões. */
 
-    .botao{
-        margin: 0 auto;
-        font-size: 20px;
-        margin: 3px;
-        color: white;
-        background-color: #1f1f1f;
-        border: none;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-    }
+        .botao{
+            margin: 0 auto;
+            font-size: 20px;
+            margin: 3px;
+            color: white;
+            background-color: #1f1f1f;
+            border: none;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
 
-    .botao:hover{
-        background-color: black;
-    }
+        .botao:hover{
+            background-color: black;
+        }
 
-    /* Tela dos resultados. */
+        /* Tela dos resultados. */
 
-    #resultado{
-        text-align: right;
-        font-size: 20px;
-        color: black;
-        background-color: white;
-        padding: 8px;
-        height: 25px;
-        width: 207px;
-        margin: 0 auto;
-    }
+        #resultado{
+            text-align: right;
+            font-size: 20px;
+            color: black;
+            background-color: white;
+            padding: 8px;
+            height: 25px;
+            width: 207px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
+    
     <header>
         <h1>Calculadora Simples</h1>
     </header>
@@ -118,34 +119,34 @@
     <script>
         //Função para inserir os números para serem calculados.
 
-function inserir(num){
-    var numero = document.getElementById('resultado').innerHTML
-    document.getElementById('resultado').innerHTML = numero + num
-}
+        function inserir(num){
+            var numero = document.getElementById('resultado').innerHTML
+            document.getElementById('resultado').innerHTML = numero + num
+        }
 
-//Função para limpar os números da tela.
+        //Função para limpar os números da tela.
 
-function clean(){
-    document.getElementById("resultado").innerHTML = ""
-}
+        function clean(){
+            document.getElementById("resultado").innerHTML = ""
+        }
 
-//Função para limpar os números da tela um por um.
+        //Função para limpar os números da tela um por um.
 
-function back(){
-    var resultado = document.getElementById('resultado').innerHTML
-    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
-}
+        function back(){
+            var resultado = document.getElementById('resultado').innerHTML
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
+        }
 
-//Função para fazer os cálculos.
+        //Função para fazer os cálculos.
 
-function calcular(){
-    var resultado = document.getElementById('resultado').innerHTML
-    if(resultado){
-        document.getElementById("resultado").innerHTML = eval(resultado);
-    }else{
-        document.getElementById('resultado').innerHTML = "Inválido"
-    }
-}
+        function calcular(){
+            var resultado = document.getElementById('resultado').innerHTML
+            if(resultado){
+                document.getElementById("resultado").innerHTML = eval(resultado);
+            }else{
+                document.getElementById('resultado').innerHTML = "Inválido"
+            }
+        }
     </script>
 </body>
 </html>
