@@ -1,30 +1,30 @@
-//Função para inserir os números para serem calculados.
+const resultadoEl = document.getElementById("resultado")
 
-function inserir(num){
-    var numero = document.getElementById('resultado').innerHTML
-    document.getElementById('resultado').innerHTML = numero + num
-}
+const Calculadora = {
+    //Função para inserir os números para serem calculados.
+    inserir(num){
+        let numero = resultadoEl.innerHTML
+        resultadoEl.innerHTML = numero + num
+    },
 
-//Função para limpar os números da tela.
+    //Função para limpar os números da tela.
+    clean(){
+        resultadoEl.innerHTML = ""
+    },
 
-function clean(){
-    document.getElementById("resultado").innerHTML = ""
-}
+    //Função para limpar os números da tela um por um.
+    back(){
+        let resultado = resultadoEl.innerHTML
+        resultadoEl.innerHTML = resultado.substring(0, resultado.length -1)
+    },
 
-//Função para limpar os números da tela um por um.
-
-function back(){
-    var resultado = document.getElementById('resultado').innerHTML
-    document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
-}
-
-//Função para fazer os cálculos.
-
-function calcular(){
-    var resultado = document.getElementById('resultado').innerHTML
-    if(resultado){
-        document.getElementById("resultado").innerHTML = eval(resultado);
-    }else{
-        document.getElementById('resultado').innerHTML = "Inválido"
+    //Função para fazer os cálculos.
+    calcular(){
+        let resultado = resultadoEl.innerHTML
+        if(resultado){
+            resultadoEl.innerHTML = eval(resultado);
+        }else{
+            resultadoEl.innerHTML = "Inválido"
+        }
     }
 }

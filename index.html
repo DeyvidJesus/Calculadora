@@ -5,75 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <style>
-            /* Configurações globais. */
-
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
-        }
-
-        /* Degradê. */
-
-        body{
-            background-image: linear-gradient(45deg, #0e0d0d, #FFDA36, #FFD000);
-            height: 100vh;
-        }
-
-        /* Cabeçalho. */
-
-        header{
-            padding: 5px;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.925);
-            color: #fff;
-        }
-
-        /* Fundo da calculadora. */
-
-        #calculadora{
-            padding: 15px;
-            border-radius: 15px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-            background-color: rgba(0, 0, 0, 0.295);
-        }
-
-        /* Estilos dos botões. */
-
-        .botao{
-            margin: 0 auto;
-            font-size: 20px;
-            margin: 3px;
-            color: white;
-            background-color: #1f1f1f;
-            border: none;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-        }
-
-        .botao:hover{
-            background-color: black;
-        }
-
-        /* Tela dos resultados. */
-
-        #resultado{
-            text-align: right;
-            font-size: 20px;
-            color: black;
-            background-color: white;
-            padding: 8px;
-            height: 25px;
-            width: 207px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -85,68 +17,37 @@
             <p id="resultado"></p>
             <table>
                 <tr>
-                    <td><button class="botao" onclick="clean()">C</button></td>
-                    <td><button class="botao" onclick="back()">&lt;</button></td>
-                    <td><button class="botao" onclick="inserir('/')">/</button></td>
-                    <td><button class="botao" onclick="inserir('*')">x</button></td>
+                    <td><button class="botao" onclick="Calculadora['clean']()">C</button></td>
+                    <td><button class="botao" onclick="Calculadora['back']()">&lt;</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('/')">/</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('*')">x</button></td>
                 </tr>
                 <tr>
-                    <td><button class="botao" onclick="inserir('7')">7</button></td>
-                    <td><button class="botao" onclick="inserir('8')">8</button></td>
-                    <td><button class="botao" onclick="inserir('9')">9</button></td>
-                    <td><button class="botao" onclick="inserir('-')">-</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('7')">7</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('8')">8</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('9')">9</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('-')">-</button></td>
                 </tr>
                 <tr>
-                    <td><button class="botao" onclick="inserir('4')">4</button></td>
-                    <td><button class="botao" onclick="inserir('5')">5</button></td>
-                    <td><button class="botao" onclick="inserir('6')">6</button></td>
-                    <td><button class="botao" onclick="inserir('+')">+</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('4')">4</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('5')">5</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('6')">6</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('+')">+</button></td>
                 </tr>
                 <tr>
-                    <td><button class="botao" onclick="inserir('1')">1</button></td>
-                    <td><button class="botao" onclick="inserir('2')">2</button></td>
-                    <td><button class="botao" onclick="inserir('3')">3</button></td>
-                    <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('1')">1</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('2')">2</button></td>
+                    <td><button class="botao" onclick="Calculadora['inserir']('3')">3</button></td>
+                    <td rowspan="2"><button class="botao" style="height: 106px;" onclick="Calculadora['calcular']()">=</button></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="inserir('0')">0</button></td>
-                    <td><button class="botao" onclick="inserir('.')">.</button></td>
+                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="Calculadora['inserir']('0')">0</button></td>
+                    <td><button class="botao" onclick="Calculadora.inserir('.')">.</button></td>
                 </tr>
             </table>
         </div>
     </section>
 
-    <script>
-        //Função para inserir os números para serem calculados.
-
-        function inserir(num){
-            var numero = document.getElementById('resultado').innerHTML
-            document.getElementById('resultado').innerHTML = numero + num
-        }
-
-        //Função para limpar os números da tela.
-
-        function clean(){
-            document.getElementById("resultado").innerHTML = ""
-        }
-
-        //Função para limpar os números da tela um por um.
-
-        function back(){
-            var resultado = document.getElementById('resultado').innerHTML
-            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
-        }
-
-        //Função para fazer os cálculos.
-
-        function calcular(){
-            var resultado = document.getElementById('resultado').innerHTML
-            if(resultado){
-                document.getElementById("resultado").innerHTML = eval(resultado);
-            }else{
-                document.getElementById('resultado').innerHTML = "Inválido"
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
